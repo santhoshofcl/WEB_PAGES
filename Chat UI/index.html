@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Dashboard Chat UI</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Navigation Menu -->
+      <div class="nav-menu">
+        <div class="logo">C</div>
+        <div class="nav-links">
+          <div class="nav-link active">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="nav-link">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <div class="nav-link">
+            <i class="fas fa-th-large"></i>
+          </div>
+          <div class="nav-link">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="nav-link">
+            <i class="fas fa-server"></i>
+          </div>
+        </div>
+        <div class="user-profile">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="profile-img">
+            <img src="https://i.pravatar.cc/100?img=1" alt="Profile" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Left Sidebar - Chat List -->
+      <div class="left-sidebar">
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Chats</h2>
+          <div class="action-buttons">
+            <button class="btn-icon">
+              <i class="fas fa-star"></i>
+            </button>
+            <button class="btn-icon">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="search-container">
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Search conversations..."
+          />
+        </div>
+        <div class="chat-filters">
+          <div class="filter-option active">All</div>
+          <div class="filter-option">Unread</div>
+          <div class="filter-option">Groups</div>
+        </div>
+        <div class="contact-list">
+          <div class="contact active">
+            <div class="avatar online">S</div>
+            <div class="contact-info">
+              <div class="contact-name">Sarah Johnson</div>
+              <div class="contact-preview">I'll check it.</div>
+            </div>
+            <div class="contact-time">12:45</div>
+          </div>
+          <div class="contact unread">
+            <div class="avatar">M</div>
+            <div class="contact-info">
+              <div class="contact-name">Mike Thompson</div>
+              <div class="contact-preview">Did you get the files I sent?</div>
+            </div>
+            <div class="contact-time">10:20</div>
+          </div>
+          <div class="contact">
+            <div class="avatar online">E</div>
+            <div class="contact-info">
+              <div class="contact-name">Emma Davis</div>
+              <div class="contact-preview">Let's meet.</div>
+            </div>
+            <div class="contact-time">2:00</div>
+          </div>
+          <div class="contact">
+            <div class="avatar">J</div>
+            <div class="contact-info">
+              <div class="contact-name">James Wilson</div>
+              <div class="contact-preview">Thanks for your help!</div>
+            </div>
+            <div class="contact-time">Yesterday</div>
+          </div>
+          <div class="contact">
+            <div class="avatar online">A</div>
+            <div class="contact-info">
+              <div class="contact-name">Alex Robinson</div>
+              <div class="contact-preview">Are we still on for today?</div>
+            </div>
+            <div class="contact-time">Mar 8</div>
+          </div>
+          <div class="contact unread">
+            <div class="avatar">L</div>
+            <div class="contact-info">
+              <div class="contact-name">Lisa Miller</div>
+              <div class="contact-preview">I just sent you the report</div>
+            </div>
+            <div class="contact-time">Mar 7</div>
+          </div>
+          <div class="contact">
+            <div class="avatar">D</div>
+            <div class="contact-info">
+              <div class="contact-name">Design Team</div>
+              <div class="contact-preview">John: Final revisions complete</div>
+            </div>
+            <div class="contact-time">Mar 6</div>
+          </div>
+          <div class="contact">
+            <div class="avatar">P</div>
+            <div class="contact-info">
+              <div class="contact-name">Product Meeting</div>
+              <div class="contact-preview">Amy: Let's discuss the roadmap</div>
+            </div>
+            <div class="contact-time">Mar 5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Chat Area -->
+      <div class="main-content">
+        <div class="chat-header">
+          <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="chat-user-info">
+            <div class="avatar online">S</div>
+            <div style="margin-left: 15px">
+              <h3>Sarah Johnson</h3>
+              <div class="user-profile-status">
+                <span class="status-indicator"></span>
+                <span>Online</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-actions">
+            <button class="btn-icon">
+              <i class="fas fa-video"></i>
+            </button>
+            <button class="btn-icon">
+              <i class="fas fa-phone"></i>
+            </button>
+            <button
+              class="btn-icon toggle-right-sidebar"
+              id="toggle-right-sidebar"
+            >
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+          </div>
+        </div>
+        <div class="messages">
+          <div class="message-date">
+            <span>Today, March 10, 2025</span>
+          </div>
+          <div class="message received">
+            <div class="message-content">
+              Hi! How are you doing today?
+              <div class="message-meta">
+                <span class="message-time">11:30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="message sent">
+            <div class="message-content">
+              Hey Sarah! I'm doing great, thanks for asking. Just finishing up
+              some work.
+              <div class="message-meta">
+                <span class="message-time">11:32</span>
+                <span class="message-status">
+                  <i class="fas fa-check"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="message received">
+            <div class="message-content">
+              That's good to hear! I was wondering if you're free this weekend
+              for the team meetup?
+              <div class="message-meta">
+                <span class="message-time">11:34</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="message sent">
+            <div class="message-content">
+              Yes, I should be available. What time were you thinking?
+              <div class="message-meta">
+                <span class="message-time">11:40</span>
+                <span class="message-status">
+                  <i class="fas fa-check"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="message received">
+            <div class="message-content">
+              <div class="shared-file">
+                <div class="file-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="file-info">
+                  <div class="file-name">Team_Meeting_Agenda.pdf</div>
+                  <div class="file-size">2.4 MB</div>
+                </div>
+                <div class="file-actions">
+                  <i class="fas fa-download"></i>
+                </div>
+              </div>
+              Here's the agenda for our meeting. We're planning to meet around 3
+              PM at Central Park.
+              <div class="message-meta">
+                <span class="message-time">12:45</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-area">
+          <div class="input-tools">
+            <div class="input-tool">
+              <i class="fas fa-image"></i>
+            </div>
+            <div class="input-tool">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="input-tool">
+              <i class="fas fa-file-alt"></i>
+            </div>
+          </div>
+          <div class="message-input-container">
+            <input
+              type="text"
+              class="message-input"
+              placeholder="Type a message..."
+            />
+            <span class="emoji-picker">
+              <i class="far fa-smile"></i>
+            </span>
+          </div>
+          <button class="send-button">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Sidebar - User Profile & Files -->
+      <div class="right-sidebar">
+        <div class="sidebar-tabs">
+          <div class="sidebar-tab active">Profile</div>
+          <div class="sidebar-tab">Files</div>
+        </div>
+        <div class="sidebar-content">
+          <!-- Profile Tab Content -->
+          <div class="user-profile-card">
+            <div class="user-profile-pic">
+              <img src="https://i.pravatar.cc/100?img=2" alt="Profile" />
+            </div>
+            <div class="user-profile-name">Sarah Johnson</div>
+            <div class="user-profile-status">
+              <span class="status-indicator"></span>
+              <span>Online</span>
+            </div>
+            <div class="user-profile-actions">
+              <div class="profile-action">
+                <i class="fas fa-video"></i>
+              </div>
+              <div class="profile-action">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="profile-action">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="user-info-section">
+            <h4 class="info-heading">User Information</h4>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="info-details">
+                <div class="info-label">Username</div>
+                <div class="info-value">@sarah_j</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-details">
+                <div class="info-label">Phone</div>
+                <div class="info-value">+1 (555) 123-4567</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-details">
+                <div class="info-label">Email</div>
+                <div class="info-value">sarah.j@example.com</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-calendar"></i>
+              </div>
+              <div class="info-details">
+                <div class="info-label">Joined</div>
+                <div class="info-value">March 15, 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Files Tab Content-->
+          <div class="files-list" style="display: none">
+            <h4 class="info-heading">Shared Files</h4>
+            <div class="file-item">
+              <div class="file-thumbnail">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="file-details">
+                <div class="file-title">Team_Meeting_Agenda.pdf</div>
+                <div class="file-meta">
+                  <span>2.4 MB</span>
+                  <span class="file-date">Today, 12:45 PM</span>
+                </div>
+              </div>
+              <div class="file-download">
+                <i class="fas fa-download"></i>
+              </div>
+            </div>
+            <div class="file-item">
+              <div class="file-thumbnail">
+                <img src="https://i.pravatar.cc/100?img=3" alt="Profile" />
+              </div>
+              <div class="file-details">
+                <div class="file-title">Project_Screenshot.png</div>
+                <div class="file-meta">
+                  <span>1.2 MB</span>
+                  <span class="file-date">Yesterday, 4:30 PM</span>
+                </div>
+              </div>
+              <div class="file-download">
+                <i class="fas fa-download"></i>
+              </div>
+            </div>
+            <div class="file-item">
+              <div class="file-thumbnail">
+                <i class="fas fa-file-word"></i>
+              </div>
+              <div class="file-details">
+                <div class="file-title">Quarterly_Report.docx</div>
+                <div class="file-meta">
+                  <span>3.8 MB</span>
+                  <span class="file-date">Mar 8, 2025</span>
+                </div>
+              </div>
+              <div class="file-download">
+                <i class="fas fa-download"></i>
+              </div>
+            </div>
+            <div class="file-item">
+              <div class="file-thumbnail">
+                <i class="fas fa-file-excel"></i>
+              </div>
+              <div class="file-details">
+                <div class="file-title">Budget_Forecast.xlsx</div>
+                <div class="file-meta">
+                  <span>1.7 MB</span>
+                  <span class="file-date">Mar 5, 2025</span>
+                </div>
+              </div>
+              <div class="file-download">
+                <i class="fas fa-download"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
