@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-['Poppins'] bg-gray-900 text-gray-100">
+    <!-- Top Navigation Bar -->
+    <header class="bg-gray-800 py-4 px-6 shadow-md">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center space-x-6">
+                <div class="text-2xl font-bold text-emerald-400">SBI Bank</div>
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search payments..." 
+                           class="bg-gray-700 rounded-full py-2 px-4 pl-10 w-full focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                    <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="bg-gray-700 p-2 rounded-full">
+                    <i class="fas fa-bell text-gray-300"></i>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="bg-emerald-500 w-8 h-8 rounded-full flex items-center justify-center">
+                        <span class="font-medium">S</span>
+                    </div>
+                    <span class="font-medium">Hi Santhosh!</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Transaction Tabs -->
+        <div class="flex space-x-2 mb-8 border-b border-gray-700 pb-2">
+            <button class="px-4 py-2 bg-emerald-500 rounded-t-lg font-medium">All</button>
+            <button class="px-4 py-2 text-gray-400 hover:text-white">Withdrawal</button>
+            <button class="px-4 py-2 text-gray-400 hover:text-white">Savings</button>
+            <button class="px-4 py-2 text-gray-400 hover:text-white">Deposit</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Revenue Flow Graph -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold">Revenue Flow</h2>
+                        <select class="bg-gray-700 rounded-lg px-3 py-1 text-sm">
+                            <option>March - August</option>
+                        </select>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Transactions List -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-xl font-bold mb-6">Recent Transactions</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-emerald-500/20 p-2 rounded-lg">
+                                    <i class="fas fa-paint-brush text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Figma</p>
+                                    <p class="text-sm text-gray-400">Subscription</p>
+                                </div>
+                            </div>
+                            <p class="text-red-400 font-medium">-$12.99</p>
+                        </div>
+                        <div class="flex justify-between items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-emerald-500/20 p-2 rounded-lg">
+                                    <i class="fas fa-keyboard text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Grammarly</p>
+                                    <p class="text-sm text-gray-400">Subscription</p>
+                                </div>
+                            </div>
+                            <p class="text-red-400 font-medium">-$29.99</p>
+                        </div>
+                        <div class="flex justify-between items-center p-3 hover:bg-gray-700 rounded-lg transition">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-emerald-500/20 p-2 rounded-lg">
+                                    <i class="fas fa-cube text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Blender</p>
+                                    <p class="text-sm text-gray-400">Software</p>
+                                </div>
+                            </div>
+                            <p class="text-red-400 font-medium">-$49.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+                <!-- My Card -->
+                <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl p-6 shadow-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm text-emerald-100">Total Balance</p>
+                            <p class="text-2xl font-bold">$22,350.50</p>
+                        </div>
+                        <div class="bg-white/20 p-2 rounded-lg">
+                            <i class="fas fa-credit-card text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-sm text-emerald-100 mb-1">Card Number</p>
+                        <p class="font-mono tracking-wider">•••• •••• •••• 4679</p>
+                    </div>
+                </div>
+
+                <!-- Income & Expenses -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-xl font-bold mb-6">Income & Expenses</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-700/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Income</p>
+                            <p class="text-2xl font-bold">$2,240</p>
+                            <p class="text-sm text-emerald-400 mt-1">+12% this week</p>
+                        </div>
+                        <div class="bg-gray-700/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Expense</p>
+                            <p class="text-2xl font-bold">$1,750</p>
+                            <p class="text-sm text-red-400 mt-1">+9% this week</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Breakdown -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-xl font-bold mb-6">Expense Breakdown</h2>
+                    <div class="flex">
+                        <div class="w-32 h-32 mr-6">
+                            <canvas id="expenseChart"></canvas>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-3">
+                                <div class="w-3 h-3 bg-emerald-400 rounded-full mr-2"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm">Food</p>
+                                    <p class="text-lg font-bold">$950</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm">Clothes</p>
+                                    <p class="text-lg font-bold">$320</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-purple-400 rounded-full mr-2"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm">Other</p>
+                                    <p class="text-lg font-bold">$480</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Friends -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold">Add Friends</h2>
+                        <i class="fas fa-user-plus text-emerald-400"></i>
+                    </div>
+                    <p class="text-gray-400 mb-4">Invite friends and earn rewards when they join SBI Bank</p>
+                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 py-2 rounded-lg font-medium transition">
+                        Invite Friends
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
