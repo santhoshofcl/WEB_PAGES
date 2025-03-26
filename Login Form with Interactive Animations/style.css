@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", "Comic Sans MS", cursive;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffd6e8;
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* Floating Shapes Animation */
+  .floating-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .shape {
+    position: absolute;
+    animation: float 15s infinite linear;
+  }
+  
+  .shape1 {
+    width: 60px;
+    height: 60px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    top: 20%;
+    left: 10%;
+    animation-delay: -2s;
+  }
+  
+  .shape2 {
+    width: 40px;
+    height: 40px;
+    background: #87ceeb;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 60%;
+    right: 15%;
+    animation-delay: -4s;
+  }
+  
+  .shape3 {
+    width: 50px;
+    height: 50px;
+    background: #98fb98;
+    border-radius: 12px;
+    bottom: 20%;
+    left: 30%;
+    animation-delay: -6s;
+  }
+  
+  .shape4 {
+    width: 45px;
+    height: 45px;
+    background: #dda0dd;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    top: 30%;
+    right: 25%;
+    animation-delay: -8s;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(100px, 50px) rotate(90deg);
+    }
+    50% {
+      transform: translate(50px, 100px) rotate(180deg);
+    }
+    75% {
+      transform: translate(-50px, 50px) rotate(270deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg);
+    }
+  }
+  
+  .login-container {
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    border: 4px solid #ffb6c1;
+  }
+  
+  .login-container::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 20%;
+    right: 20%;
+    height: 30px;
+    background: white;
+    border: 4px solid #ffb6c1;
+    border-bottom: none;
+    border-radius: 20px 20px 0 0;
+    z-index: -1;
+  }
+  
+  .character {
+    width: 100px;
+    height: 100px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .eyes {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .eye {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    animation: blink 4s infinite;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hands covering eyes */
+  .hands {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .hand {
+    width: 25px;
+    height: 25px;
+    background: #ffb6c1;
+    border: 3px solid #ff69b4;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .hand::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 15px;
+    background: #ffb6c1;
+    border-left: 3px solid #ff69b4;
+    border-right: 3px solid #ff69b4;
+  }
+  
+  .character.hiding .hands {
+    transform: translateY(0);
+  }
+  
+  .character.hiding .eye {
+    height: 2px;
+    background: #666;
+    margin-top: 9px;
+  }
+  
+  @keyframes blink {
+    0%,
+    96%,
+    98% {
+      transform: scaleY(1);
+    }
+    97% {
+      transform: scaleY(0.1);
+    }
+  }
+  
+  .mouth {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    border: 4px solid black;
+    border-radius: 0 0 20px 20px;
+    border-top: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .character.hiding .mouth {
+    height: 25px;
+    border-radius: 20px 20px 20px 20px;
+    border-top: 4px solid black;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ff69b4;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 3px solid #ffb6c1;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff9fb;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #ff69b4;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .login-button:hover {
+    transform: scale(1.02) translateY(-2px);
+    background: #ff1493;
+  }
+  
+  .login-button:active {
+    transform: scale(0.98);
+  }
+  
+  .social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .social-button {
+    flex: 1;
+    padding: 12px;
+    border: 3px solid #ffb6c1;
+    border-radius: 15px;
+    background: white;
+    color: #666;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .social-button:hover {
+    background: #fff9fb;
+    transform: translateY(-2px);
+  }
+  
+  .signup-link {
+    text-align: center;
+    color: #666;
+  }
+  
+  .signup-link a {
+    color: #ff69b4;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    color: #ff1493;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 30px 20px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    .character {
+      width: 80px;
+      height: 80px;
+    }
+  }
