@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">Dashboard</div>
+        <ul class="nav-menu">
+          <li class="nav-item active">Overview</li>
+          <li class="nav-item">Analytics</li>
+          <li class="nav-item">Reports</li>
+          <li class="nav-item">Settings</li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <header class="header">
+          <h1>Overview</h1>
+          <input type="text" class="search-bar" placeholder="Search..." />
+        </header>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Total Revenue</span>
+            </div>
+            <div class="card-value">$84,254</div>
+            <div class="card-change">+14.2%</div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Active Users</span>
+            </div>
+            <div class="card-value">1,234</div>
+            <div class="card-change">+7.1%</div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Conversion Rate</span>
+            </div>
+            <div class="card-value">12.3%</div>
+            <div class="card-change">+2.3%</div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Average Order</span>
+            </div>
+            <div class="card-value">$123</div>
+            <div class="card-change">+4.8%</div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2 class="chart-title">Revenue Overview</h2>
+            </div>
+            <canvas id="revenueChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2 class="chart-title">User Distribution</h2>
+            </div>
+            <canvas id="userChart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
